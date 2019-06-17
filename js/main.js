@@ -4,12 +4,12 @@ $(document).ready(function () {
       if ($(this).attr('val') == 'off') {
          $('.button[filter]').attr('val', 'off').removeClass('focused');
          $(this).attr('val', 'on').addClass('focused');
-         $('.filter > div').hide(300);
-         $('.filter > div[filter=' + $(this).attr('filter') + ']').show(300);
+         $('.filter > div').hide(600);
+         $('.filter > div[filter=' + $(this).attr('filter') + ']').show(600);
          if ($(this).attr('filter') == 'all') {
             $('.button[filter]').attr('val', 'off').removeClass('focused');
             $(this).attr('val', 'on').addClass('focused');
-            $('.filter > div').show(300);
+            $('.filter > div').show(600);
          }
       }
    });
@@ -35,12 +35,13 @@ $(document).ready(function () {
          }
       }]
    });
+
    /* Меню */
    $('ul.menu a[href^="#"').click(function () {
       var target = $(this).attr('href');
       $('html, body').animate({
          scrollTop: $(target).offset().top
-      }, 500);
+      }, 600);
       $('ul.menu a[href^="#"').css({
          'color': '#212121'
       });
@@ -49,6 +50,7 @@ $(document).ready(function () {
       });
       return false;
    });
+
    /* Выпадающее меню */
    $('.menu-icon').click(function () {
       $('nav').slideToggle(500);
@@ -62,12 +64,13 @@ $(document).ready(function () {
          $(this).html('<i class="fas fa-bars"></i>');
       }
    });
-   /* Кнопка наверх */
+   /* Кнопка вверх */
    $(window).scroll(function () {
+      
       if ($(this).scrollTop() != 0)
-         $('#toTop').fadeIn();
+         $('#toTop').fadeIn("slow");
       else
-         $('#toTop').fadeOut();
+         $('#toTop').fadeOut("slow");
    });
    $('#toTop').click(function () {
       $('body,html').animate({
